@@ -17,27 +17,46 @@ const ShowcaseSection = () => {
       project3Ref.current,
     ];
 
-    projects.forEach((project, index) => {
-      gsap.fromTo(
-        project,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.3 * (index + 1),
-          scrollTrigger: {
-            trigger: project,
-            start: "top bottom-=100",
-          },
-        }
-      );
-    });
+    // Project 1 animation
+    gsap.fromTo(
+      project1Ref.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: project1Ref.current,
+          start: "top bottom-=100",
+        },
+      }
+    );
 
+    // Projects 2 and 3 animation
+    gsap.fromTo(
+      [project2Ref.current, project3Ref.current],
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.9,
+        scrollTrigger: {
+          trigger: project1Ref.current,
+          start: "top bottom-=100",
+        },
+      }
+    );
+
+    // Section fade in
     gsap.fromTo(
       sectionRef.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1.5 }
+      {
+        opacity: 1,
+        duration: 1.5,
+      }
     );
   }, []);
 
