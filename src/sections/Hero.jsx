@@ -2,7 +2,22 @@ import React from "react";
 import { words } from "../constants/index";
 import Button from "../components/Button";
 import HeroExperience from "../components/HeroModels/HeroExperience";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import AnimatedCounter from "../components/AnimatedCounter";
 const hero = () => {
+    useGSAP(() => {
+        gsap.fromTo(".hero-text h1", {
+            y: 50,
+            opacity: 0,
+        }, {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power2.inOut",
+        });
+    });
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
@@ -11,7 +26,7 @@ const hero = () => {
       <div className="hero-layout">
         {/* left : Hero content
             Right : 3D Model */}
-        <header className="flex flex-col md:w-full justify-center w-screen md:px-20 px-5">
+        <header className="flex flex-col md:w-full justify-center w-full md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
               <h1>
@@ -35,7 +50,7 @@ const hero = () => {
                 </span>
               </h1>
               <h1>into Real Projects</h1>
-              <h1>the Deliver Results</h1>
+              <h1>to Deliver Results</h1>
             </div>
             <p className="text-white-50 md:text-xl relative z-10">
               Hi, I'm Rahul, a product manager with a passion for
@@ -57,6 +72,7 @@ const hero = () => {
          </figure>           
 
       </div>
+      <AnimatedCounter/>  
     </section>
   );
 };
