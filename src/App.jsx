@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HeroSection from './sections/HeroSection'
 import ShowcaseSection from './sections/ShowcaseSection'
 import NavBar from './components/NavBar'
@@ -8,6 +9,7 @@ import ExperienceSection from './sections/ExperienceSection'
 import TechStack from './sections/TechStack'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import Projects from './sections/Projects'
 
 const App = () => {
   useEffect(() => {
@@ -19,17 +21,24 @@ const App = () => {
   }, []);
 
   return (
-    <main>
-      <NavBar />  
-      <HeroSection />
-      <ShowcaseSection />
-      <LogoSection />
-      <FeatureCards />
-      <ExperienceSection />
-      <TechStack />
-      <Contact />
-      <Footer />
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <NavBar />  
+            <HeroSection />
+            <ShowcaseSection />
+            <LogoSection />
+            <FeatureCards />
+            <ExperienceSection />
+            <TechStack />
+            <Contact />
+            <Footer />
+          </main>
+        } />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </Router>
   )
 }
 
