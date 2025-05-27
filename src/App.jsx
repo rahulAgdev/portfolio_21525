@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Hero from './sections/hero.jsx'
+import HeroSection from './sections/HeroSection'
 import ShowcaseSection from './sections/ShowcaseSection'
 import NavBar from './components/NavBar'
 import LogoSection from './sections/LogoSection'
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <main>
       <NavBar />  
-      <Hero />
+      <HeroSection />
       <ShowcaseSection />
       <LogoSection />
       <FeatureCards />
