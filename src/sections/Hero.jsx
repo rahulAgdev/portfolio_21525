@@ -5,7 +5,7 @@ import HeroExperience from "../components/HeroModels/HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
-const hero = () => {
+const Hero = () => {
     useGSAP(() => {
         gsap.fromTo(".hero-text h1", {
             y: 50,
@@ -77,4 +77,4 @@ const hero = () => {
   );
 };
 
-export default hero;
+export default Hero;
